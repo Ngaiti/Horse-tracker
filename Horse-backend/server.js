@@ -40,7 +40,6 @@ app.listen(PORT, () => {
 });
 
 
-// === BONUS: Simulate Live Data Updates ===
 // This function simulates a new training log being added every 15 seconds.
 setInterval(() => {
     // Pick a random active horse
@@ -62,4 +61,4 @@ setInterval(() => {
 
     console.log(`[Data Simulation] Added new training log for ${randomHorse.name}.`);
 
-}, 15000); // Runs every 15 seconds
+}, 60000); // Runs every 60 seconds

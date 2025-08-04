@@ -1,33 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { 
-    Box, 
-    Container, 
-    Typography, 
-    FormControl, 
-    InputLabel, 
-    Select, 
-    MenuItem, 
-    Dialog, 
-    DialogTitle, 
-    DialogContent, 
-    IconButton, 
-    ThemeProvider, 
-    CssBaseline,
-    CircularProgress
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
+// src/App.jsx
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Box, ThemeProvider, CssBaseline, CircularProgress, Typography} from '@mui/material';
 
 import { theme } from './theme/theme';
+import Header from './components/Header';
 import { getHorses } from './services/horseApi';
-import { HorseList } from './components/HorseList';
-import { HorseDetails } from './components/HorseDetails';
-import { OverdueNotification } from './components/OverdueNotification'; // Corrected name
+import { CardView } from './components/CardView'; 
+import { TableView } from './components/TableView';
+import { OverdueNotification } from './components/OverdueNotification';
 
 export default function App() {
     const [horses, setHorses] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedHorse, setSelectedHorse] = useState(null);
-    const [statusFilter, setStatusFilter] = useState('all');
 
     useEffect(() => {
         const fetchHorses = async () => {
@@ -40,94 +25,36 @@ export default function App() {
                 setLoading(false);
             }
         };
-
         fetchHorses();
     }, []);
-
-    const handleFilterChange = (event) => {
-        setStatusFilter(event.target.value);
-    };
-
-    const handleSelectHorse = (horse) => {
-        setSelectedHorse(horse);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedHorse(null);
-    };
-
-    const filteredHorses = useMemo(() => {
-        if (statusFilter === 'all') {
-            return horses;
-        }
-        return horses.filter((horse) => horse.status === statusFilter);
-    }, [horses, statusFilter]);
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Box  sx={{
-                display: 'flex',
-                minHeight: '100vh',
-                boxSizing: 'border-box',  // Prevents padding/border from adding to width
-                p: 4                     
-            }}>
-                <Container maxWidth="lg" sx={{ p: 4, borderRadius: 2 }}>
-                    <Box sx={{ my: 3 }}>
-                        <Typography variant="h4" component="h1" gutterBottom align="center">
-                            Horse Tracker System
-                        </Typography>
-                        <Typography variant="subtitle1" align="center" color="text.secondary">
-                            Monitoring the health and performance of our equine athletes.
-                        </Typography>
-                    </Box>
-
+            <Router>
+                <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                    <Header />
                     <OverdueNotification horses={horses} />
-
-                    <Box sx={{ mb: 4, maxWidth: '350px', mx: 'auto' }}>
-                        <FormControl fullWidth variant="outlined">
-                            <InputLabel>Filter by Status</InputLabel>
-                            <Select
-                                value={statusFilter}
-                                onChange={handleFilterChange}
-                                label="Filter by Status"
-                            >
-                                <MenuItem value="all">All</MenuItem>
-                                <MenuItem value="active">Active</MenuItem>
-                                <MenuItem value="resting">Resting</MenuItem>
-                                <MenuItem value="injured">Injured</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-
-                    {loading ? (
-                        <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
-                            <CircularProgress />
+                        <Box sx={{ my: 3 }}>
+                            {/* <Typography variant="h4" component="h1" gutterBottom align="center">
+                                Horse Tracker System
+                            </Typography>
+                            <Typography variant="subtitle1" align="center" color="text.secondary">
+                                Monitoring the health and performance of our equine athletes.
+                            </Typography> */}
                         </Box>
-                    ) : (
-                        <HorseList
-                            horses={filteredHorses}
-                            onSelectHorse={handleSelectHorse}
-                        />
-                    )}
-
-                    <Dialog open={!!selectedHorse} onClose={handleCloseModal} maxWidth="sm" fullWidth>
-                        <DialogTitle sx={{ m: 0, p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            Horse Details
-                            <IconButton
-                                aria-label="close"
-                                onClick={handleCloseModal}
-                                sx={{ color: (theme) => theme.palette.grey[500] }}
-                            >
-                                <CloseIcon />
-                            </IconButton>
-                        </DialogTitle>
-                        <DialogContent dividers>
-                            {selectedHorse && <HorseDetails horse={selectedHorse} />}
-                        </DialogContent>
-                    </Dialog>
-                </Container>
-            </Box>
+                    <Box component="main" sx={{ flexGrow: 1, p: 7, display: 'flex', justifyContent: 'center' }}>
+                        {loading ? (
+                            <CircularProgress sx={{mt: 5 }} />
+                        ) : (
+                            <Routes>
+                                <Route path="/" element={<CardView horses={horses} />} />
+                                <Route path="/table" element={<TableView horses={horses} />} />
+                            </Routes>
+                        )}
+                    </Box>
+                </Box>
+            </Router>
         </ThemeProvider>
     );
 }
