@@ -1,8 +1,29 @@
-// src/components/HorseDetails.js
+// src/components/HorseDetails.jsx
+import React, { useMemo } from 'react';
 import { Box, Typography, List, ListItem, ListItemText, Avatar, Card, CardContent, CardHeader, Divider } from '@mui/material';
 import { getStatusColor } from '../utils/helpers';
+import { TrainingChart } from './TrainingChart'; // 1. Import the new chart component
 
 export function HorseDetails({ horse }) {
+    // 2. Prepare data for the chart using useMemo for efficiency
+    const chartData = useMemo(() => {
+        if (!horse.trainingLogs || horse.trainingLogs.length === 0) {
+            return [];
+        }
+        
+        // Transform and sort the data for the chart
+        return horse.trainingLogs
+            .map(log => ({
+                // Format date for better readability on the chart's axis
+                date: new Date(log.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                // Parse the duration string (e.g., "45 mins") into a number
+                duration: parseInt(log.duration, 10) || 0, 
+            }))
+            // Sort by date to ensure the line chart connects points in chronological order
+            .reverse(); // Assuming logs are newest first, reverse them for the chart
+
+    }, [horse.trainingLogs]);
+
     return (
         <Card sx={{ boxShadow: 'none' }}>
             <CardHeader
@@ -20,6 +41,15 @@ export function HorseDetails({ horse }) {
                     <Typography variant="body2"><strong>Recovery Rate:</strong> {horse.healthStats.recoveryRate}</Typography>
                 </Box>
                 <Divider />
+
+                {/* 3. Add the Chart Section */}
+                <Box my={3}>
+                    <Typography variant="h6" gutterBottom>Training Duration Progress</Typography>
+                    <TrainingChart data={chartData} />
+                </Box>
+                
+                <Divider />
+
                 <Box mt={3}>
                     <Typography variant="h6" gutterBottom>Recent Training Logs</Typography>
                     <List dense>
