@@ -45,13 +45,13 @@ The application is built with a decoupled frontend and backend, ensuring a clear
 
 ## Project Setup
 
-The project is split into two folders: `horse-tracker-frontend` and `horse-tracker-backend`. You must run both concurrently in separate terminal windows.
+The project is split into two folders: `horse-frontend` and `horse-backend`. You must run both concurrently in separate terminal windows.
 
 ### Backend Setup
 
 1.  Navigate to the backend directory:
     ```bash
-    cd horse-tracker-backend
+    cd horse-backend
     ```
 2.  Install dependencies:
     ```bash
@@ -67,7 +67,7 @@ The project is split into two folders: `horse-tracker-frontend` and `horse-track
 
 1.  Open a **new terminal** and navigate to the frontend directory:
     ```bash
-    cd horse-tracker-frontend
+    cd horse-frontend
     ```
 2.  Install dependencies:
     ```bash
