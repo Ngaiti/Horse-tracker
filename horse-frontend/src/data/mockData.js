@@ -1,0 +1,81 @@
+export const mockHorses = [
+    {
+        id: 'H001',
+        name: 'Thunderbolt',
+        breed: 'Thoroughbred',
+        age: 5,
+        status: 'active',
+        lastVetCheck: '2024-07-15',
+        avatar: '🐴',
+        healthStats: { heartRate: 65, temperature: 38.0, recoveryRate: 'Good' },
+        trainingLogs: [
+            { date: '2024-07-28', activity: 'Speed Training', duration: '45 mins', notes: 'Excellent performance.' },
+            { date: '2024-07-27', activity: 'Endurance Run', duration: '60 mins', notes: 'Consistent pace.' },
+        ],
+    },
+    {
+        id: 'H002',
+        name: 'Willow',
+        breed: 'Arabian',
+        age: 7,
+        status: 'resting',
+        lastVetCheck: '2024-06-20',
+        avatar: '�',
+        healthStats: { heartRate: 50, temperature: 37.8, recoveryRate: 'Normal' },
+        trainingLogs: [
+            { date: '2024-07-25', activity: 'Light Gallop', duration: '30 mins', notes: 'Relaxed and calm.' },
+        ],
+    },
+    {
+        id: 'H003',
+        name: 'Rocky',
+        breed: 'Quarter Horse',
+        age: 4,
+        status: 'active',
+        lastVetCheck: '2024-07-10',
+        avatar: '🐎',
+        healthStats: { heartRate: 70, temperature: 38.2, recoveryRate: 'Excellent' },
+        trainingLogs: [
+            { date: '2024-07-28', activity: 'Agility Drills', duration: '50 mins', notes: 'Sharp turns, very responsive.' },
+        ],
+    },
+    {
+        id: 'H004',
+        name: 'Stardust',
+        breed: 'Andalusian',
+        age: 8,
+        status: 'injured',
+        lastVetCheck: '2024-07-25',
+        avatar: '🤕',
+        healthStats: { heartRate: 55, temperature: 37.9, recoveryRate: 'N/A' },
+        trainingLogs: [
+            { date: '2024-07-20', activity: 'Hand Walk', duration: '15 mins', notes: 'Slight limp on front left leg. Vet advised rest.' },
+        ],
+    },
+    {
+        id: 'H005',
+        name: 'Blaze',
+        breed: 'Mustang',
+        age: 6,
+        status: 'active',
+        lastVetCheck: '2024-05-30',
+        avatar: '🐴',
+        healthStats: { heartRate: 68, temperature: 38.1, recoveryRate: 'Good' },
+        trainingLogs: [
+             { date: '2024-07-29', activity: 'Trail Ride', duration: '90 mins', notes: 'Handled varied terrain well.' },
+        ],
+    },
+    {
+        id: 'H006',
+        name: 'Luna',
+        breed: 'Friesian',
+        age: 9,
+        status: 'resting',
+        lastVetCheck: '2024-07-01',
+        avatar: '🦄',
+        healthStats: { heartRate: 48, temperature: 37.7, recoveryRate: 'Normal' },
+        trainingLogs: [
+            { date: '2024-07-22', activity: 'Pasture Time', duration: '120 mins', notes: 'Peaceful grazing.' },
+        ],
+    }
+];
