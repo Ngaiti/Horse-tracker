@@ -21,8 +21,7 @@ import { theme } from './theme/theme';
 import { getHorses } from './services/horseApi';
 import { HorseList } from './components/HorseList';
 import { HorseDetails } from './components/HorseDetails';
-// 1. Import the new notification component
-import { OverdueNotification } from './components/OverdueNotification';
+import { OverdueNotification } from './components/OverdueNotification'; // Corrected name
 
 export default function App() {
     const [horses, setHorses] = useState([]);
@@ -67,14 +66,13 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Box sx={{
-                margin: '100px',
+            <Box  sx={{
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
                 minHeight: '100vh',
+                boxSizing: 'border-box',  // Prevents padding/border from adding to width
+                p: 4                     
             }}>
-                <Container maxWidth="lg" sx={{ bgcolor: '#ffffff', p: 4, borderRadius: 2 }}>
+                <Container maxWidth="lg" sx={{ p: 4, borderRadius: 2 }}>
                     <Box sx={{ my: 3 }}>
                         <Typography variant="h4" component="h1" gutterBottom align="center">
                             Horse Tracker System
@@ -84,11 +82,9 @@ export default function App() {
                         </Typography>
                     </Box>
 
-                    {/* 2. Render the notification component here */}
-                    {/* It will only appear if there are overdue checks */}
                     <OverdueNotification horses={horses} />
 
-                    <Box sx={{ mb: 4, maxWidth: 'sm', mx: 'auto' }}>
+                    <Box sx={{ mb: 4, maxWidth: '350px', mx: 'auto' }}>
                         <FormControl fullWidth variant="outlined">
                             <InputLabel>Filter by Status</InputLabel>
                             <Select

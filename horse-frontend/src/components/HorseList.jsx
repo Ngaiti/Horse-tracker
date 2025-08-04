@@ -3,7 +3,7 @@ import { HorseCard } from './HorseCard';
 
 export function HorseList({ horses, onSelectHorse }) {
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent={"center"}>
             {horses.map((horse) => (
                 <HorseCard
                     key={horse.id}

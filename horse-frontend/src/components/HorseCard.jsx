@@ -3,9 +3,19 @@ import { getStatusColor } from '../utils/helpers';
 
 export function HorseCard({ horse, onSelectHorse }) {
     return (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card elevation={2}>
-                <CardActionArea onClick={() => onSelectHorse(horse)}>
+        <Grid item xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
+            <Card 
+                elevation={2} 
+                sx={{ 
+                    width: '250px', 
+                    display: 'flex', 
+                    flexDirection: 'column' 
+                }}
+            >
+                <CardActionArea 
+                    onClick={() => onSelectHorse(horse)}
+                    sx={{ flexGrow: 1 }}
+                >
                     <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <Avatar sx={{ bgcolor: getStatusColor(horse.status) + '.light' }}>{horse.avatar}</Avatar>
                         <Box flexGrow={1}>
