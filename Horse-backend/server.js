@@ -61,4 +61,4 @@ setInterval(() => {
 
     console.log(`[Data Simulation] Added new training log for ${randomHorse.name}.`);
 
-}, 60000); // Runs every 60 seconds
+}, 15000); // Runs every 60 seconds

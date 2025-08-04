@@ -15,9 +15,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { HorseList } from './HorseList';
 import { HorseDetails } from './HorseDetails';
 
-// This component receives the full list of horses as a prop
 export function CardView({ horses }) {
-    // All state related to the card view now lives here
     const [selectedHorse, setSelectedHorse] = useState(null);
     const [statusFilter, setStatusFilter] = useState('all');
 
@@ -33,12 +31,10 @@ export function CardView({ horses }) {
         setSelectedHorse(null);
     };
 
-    // The filtering logic is now case-insensitive
     const filteredHorses = useMemo(() => {
         if (statusFilter === 'all') {
             return horses;
         }
-        // THE FIX IS HERE:
         return horses.filter((horse) => horse.status.toLowerCase() === statusFilter);
     }, [horses, statusFilter]);
 

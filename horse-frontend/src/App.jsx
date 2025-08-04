@@ -8,7 +8,6 @@ import Header from './components/Header';
 import { getHorses } from './services/horseApi';
 import { CardView } from './components/CardView'; 
 import { TableView } from './components/TableView';
-import { OverdueNotification } from './components/OverdueNotification';
 
 export default function App() {
     const [horses, setHorses] = useState([]);
@@ -33,8 +32,7 @@ export default function App() {
             <CssBaseline />
             <Router>
                 <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-                    <Header />
-                    <OverdueNotification horses={horses} />
+                    <Header horses={horses} />
                         <Box sx={{ my: 3 }}>
                             {/* <Typography variant="h4" component="h1" gutterBottom align="center">
                                 Horse Tracker System
