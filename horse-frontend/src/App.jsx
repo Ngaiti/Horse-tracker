@@ -33,7 +33,13 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Box   sx={{
+        margin: "70px",
+        display: 'grid',
+        placeItems: 'center', // justify-content + align-items shorthand
+        minWidth: "170vh"
+      }}>
+            <Container maxWidth="m" sx={{ bgcolor: '#ffffffff', p: 4, borderRadius: 2 }} >
                 <Box sx={{ my: 3 }}>
                     <Typography variant="h4" component="h1" gutterBottom align="center">
                         Horse Tracker System
@@ -79,6 +85,7 @@ export default function App() {
                     </DialogContent>
                 </Dialog>
             </Container>
+            </Box>
         </ThemeProvider>
     );
 }
