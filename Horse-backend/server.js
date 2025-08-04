@@ -7,8 +7,11 @@ const { mockHorses } = require('./data/mockData');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+const FRONTEND_URL = 'https://horse-tracker.onrender.com'; // Use your frontend's Render URLse-tracker-frontend.onrender.c
+
+app.use(cors({ origin: FRONTEND_URL }));
+
 // === Middleware ===
-// Enable Cross-Origin Resource Sharing (CORS) so your React app can talk to this server
 app.use(cors());
 // Parse JSON bodies for POST/PUT requests (though not used in this simple GET-only API)
 app.use(express.json());
@@ -40,25 +43,32 @@ app.listen(PORT, () => {
 });
 
 
-// This function simulates a new training log being added every 15 seconds.
+/// Add this entire block to the end of your server.js file
+
+// === BONUS: Simulate Live Data Updates ===
+// This function simulates a new training log being added every 20 seconds.
 setInterval(() => {
-    // Pick a random active horse
-    const activeHorses = mockHorses.filter(h => h.status === 'active');
+    // 1. Filter for horses that are currently 'Active'
+    const activeHorses = mockHorses.filter(h => h.status === 'Active');
+    
+    // If no horses are active, do nothing.
     if (activeHorses.length === 0) return;
     
+    // 2. Pick a random active horse from the filtered list
     const randomHorse = activeHorses[Math.floor(Math.random() * activeHorses.length)];
     
-    // Create a new random training log
+    // 3. Create a new, plausible training log
     const newLog = {
         date: new Date().toISOString().split('T')[0], // Today's date
-        activity: 'Light Trot',
-        duration: '25 mins',
-        notes: 'Routine check-in, all systems normal.'
+        activity: 'Routine Gallop',
+        duration: '30 mins',
+        notes: 'Consistent performance, all vitals normal.'
     };
 
-    // Add the new log to the beginning of its training log array
+    // 4. Add the new log to the beginning of that horse's trainingLogs array
     randomHorse.trainingLogs.unshift(newLog);
 
+    // 5. Log a message to the server console to show that the simulation is working
     console.log(`[Data Simulation] Added new training log for ${randomHorse.name}.`);
 
-}, 15000); // Runs every 60 seconds
+}, 20000); // Runs every 20,000 milliseconds (20 seconds)

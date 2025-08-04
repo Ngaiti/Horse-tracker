@@ -1,6 +1,7 @@
 // horse-tracker-frontend/src/services/horseApi.js
 
-const API_BASE_URL = 'http://localhost:8000/api';
+// const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = 'https://horse-tracker-backend-soc0.onrender.com/api'; 
 
 export const getHorses = async () => {
   try {
