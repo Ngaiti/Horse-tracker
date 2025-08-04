@@ -2,26 +2,21 @@
 
 A full-stack web application designed to manage and monitor the status of horses in a stable or training environment. This system provides a clean, interactive interface to view horse data, track their status, and gain insights into their training progress.
 
-### Live Demo & Screenshots
-
-**(Placeholder: Add your live demo link here if you deploy the app, and include a few screenshots of the card view, table view, and detail modal.)**
-
 ---
 
 ## Project Architecture
 
 The application is built with a decoupled frontend and backend, ensuring a clear separation of concerns.
 
-* **Frontend (React):** A responsive Single-Page Application built with React and Material-UI. It handles all user interactions, routing, and data visualization.
-* **Backend (Node.js/Express):** A lightweight RESTful API that serves horse data via clearly defined endpoints.
-* **Data Layer (In-Memory):** The project uses a simple in-memory JavaScript array to simulate a database, making it self-contained and easy to run without any database configuration.
+* **Frontend (React):** A responsive Single-Page Application built with React and Material-UI.
+* **Backend (Node.js/Express):** RESTful API that serves horse data via clearly defined endpoints.
+* **Data Layer (In-Memory):** The project uses a simple in-memory JavaScript array to simulate a database.
 
 ---
 
 ## Features
 
-* **Two Viewing Modes:** View horses in a responsive **Card Grid** or a detailed **Data Table**.
-* **Client-Side Routing:** Seamless navigation between views without page reloads, handled by React Router.
+* **Two Viewing Modes:** View horses in a responsive Card grid or Table view.
 * **Dynamic Filtering:** Filter the list of horses by their status (Active, Resting, Injured).
 * **Detailed Modals:** Click on any horse to view a detailed modal with health stats and training history.
 * **Data Visualization:** A line chart within the modal visualizes the horse's training duration over time.
@@ -33,9 +28,9 @@ The application is built with a decoupled frontend and backend, ensuring a clear
 
 * **Frontend:**
     * React
-    * Material-UI (for components and styling)
-    * React Router (for navigation)
-    * Recharts (for data visualization)
+    * Material-UI 
+    * React Router
+    * Recharts
 * **Backend:**
     * Node.js
     * Express.js
