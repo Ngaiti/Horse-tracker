@@ -42,37 +42,7 @@ The application is built with a decoupled frontend and backend, ensuring a clear
 
 The project is split into two folders: `horse-frontend` and `horse-backend`. You must run both concurrently in separate terminal windows.
 
-### Backend Setup
-
-1.  Navigate to the backend directory:
-    ```bash
-    cd horse-backend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the backend server:
-    ```bash
-    npm start
-    ```
-    The server will be running at `http://localhost:8000`.
-
-### Frontend Setup
-
-1.  Open a **new terminal** and navigate to the frontend directory:
-    ```bash
-    cd horse-frontend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the React development server:
-    ```bash
-    npm run dev
-    ```
-    The application will open in your browser, usually at `http://localhost:5173`.
+Project demo link: https://horse-tracker.onrender.com/
 
 ---
 
