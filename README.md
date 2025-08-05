@@ -69,6 +69,67 @@ The data is non-persistent. Any updates (including the simulated training logs) 
 
 The project is split into two folders: `horse-frontend` and `horse-backend`.
 
+Running the Application Locally
+Follow these instructions to set up and run the project on your local machine for development and testing.
+
+Prerequisites
+Node.js (which includes npm)
+
+Git
+
+Step 1: Clone the Repository
+First, clone the project from GitHub to your local machine.
+
+Bash
+
+git clone https://github.com/Ngaiti/Horse-tracker.git
+
+Step 2: Set Up and Run the Backend
+You'll need one terminal window for the backend server.
+
+Navigate to the backend directory:
+
+Bash
+
+cd horse-backend
+Install the necessary dependencies:
+
+Bash
+
+npm install
+Start the backend server:
+
+Bash
+
+npm start
+The terminal should confirm that the server is running, typically on port 8000:
+🐴 Horse Tracker backend is running on http://localhost:8000
+
+Step 3: Set Up and Run the Frontend
+Open a new, separate terminal window or tab for the frontend application.
+
+From the project's root directory, navigate to the frontend directory:
+
+Bash
+
+cd horse-frontend
+Install the necessary dependencies:
+
+Bash
+
+npm install
+Start the frontend development server:
+
+Bash
+
+npm run dev
+Your web browser should automatically open to the application, usually at http://localhost:5173. Click on the link itself if web browser doesn't automatically open.
+
+At this point, you will have the full application running locally, with the frontend communicating with your local backend server.
+
+---
+## Hosted Demo Link
+
 Project demo link: https://horse-tracker.onrender.com/
 
 ---
