@@ -1,4 +1,3 @@
-// src/components/TrainingChart.jsx
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Typography } from '@mui/material';
 

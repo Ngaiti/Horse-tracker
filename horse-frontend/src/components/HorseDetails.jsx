@@ -1,11 +1,9 @@
-// src/components/HorseDetails.jsx
 import React, { useMemo } from 'react';
 import { Box, Typography, List, ListItem, ListItemText, Avatar, Card, CardContent, CardHeader, Divider } from '@mui/material';
 import { getStatusColor } from '../utils/helpers';
-import { TrainingChart } from './TrainingChart'; // 1. Import the new chart component
+import { TrainingChart } from './TrainingChart'; 
 
 export function HorseDetails({ horse }) {
-    // 2. Prepare data for the chart using useMemo for efficiency
     const chartData = useMemo(() => {
         if (!horse.trainingLogs || horse.trainingLogs.length === 0) {
             return [];
@@ -19,8 +17,7 @@ export function HorseDetails({ horse }) {
                 // Parse the duration string (e.g., "45 mins") into a number
                 duration: parseInt(log.duration, 10) || 0, 
             }))
-            // Sort by date to ensure the line chart connects points in chronological order
-            .reverse(); // Assuming logs are newest first, reverse them for the chart
+            .reverse();
 
     }, [horse.trainingLogs]);
 

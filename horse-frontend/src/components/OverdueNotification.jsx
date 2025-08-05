@@ -1,4 +1,3 @@
-// src/components/OverdueNotification.jsx
 import React, { useMemo } from 'react';
 import { Alert, AlertTitle, Box, List, ListItem, ListItemText } from '@mui/material';
 
@@ -21,7 +20,6 @@ export function OverdueNotification({ horses }) {
         return null;
     }
 
-    // Otherwise, display the warning alert.
     return (
         <Box sx={{ mb: 4 }}>
             <Alert severity="warning">
