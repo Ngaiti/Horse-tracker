@@ -80,23 +80,23 @@ Git
 Step 1: Clone the Repository
 First, clone the project from GitHub to your local machine.
 
-git clone https://github.com/Ngaiti/Horse-tracker.git
+- git clone https://github.com/Ngaiti/Horse-tracker.git
 
 Step 2: Set Up and Run the Backend
 You'll need one terminal window for the backend server.
 
 Navigate to the backend directory:
 
+- cd horse-backend
 
-cd horse-backend
 Install the necessary dependencies:
 
+- npm install
 
-npm install
 Start the backend server:
 
+- npm start
 
-npm start
 The terminal should confirm that the server is running, typically on port 8000:
 🐴 Horse Tracker backend is running on http://localhost:8000
 
@@ -105,16 +105,16 @@ Open a new, separate terminal window or tab for the frontend application.
 
 From the project's root directory, navigate to the frontend directory:
 
+- cd horse-frontend
 
-cd horse-frontend
 Install the necessary dependencies:
 
+- npm install
 
-npm install
 Start the frontend development server:
 
+- npm run dev
 
-npm run dev
 Your web browser should automatically open to the application, usually at http://localhost:5173. Click on the link itself if web browser doesn't automatically open.
 
 At this point, you will have the full application running locally, with the frontend communicating with your local backend server.
