@@ -14,15 +14,15 @@ UI Library: Material-UI is used for the entire component library, ensuring a con
 
 Key Responsibilities:
 
-Rendering two distinct views for horse data: a visual Card View and a dense Table View.
+- Rendering two distinct views for horse data: a visual Card View and a dense Table View.
 
-Managing client-side navigation between the views using React Router without requiring a page reload.
+- Managing client-side navigation between the views using React Router without requiring a page reload.
 
-Filtering horses by status or clicking a horse to view its detailed profile in a modal by clicking on each individual horse card in Card View.
+- Filtering horses by status or clicking a horse to view its detailed profile in a modal by clicking on each individual horse card in Card View.
 
-Visualizing training data with charts using the Recharts library.
+- Visualizing training data with charts using the Recharts library.
 
-Communicating with the Backend API via fetch to request and display horse data.
+- Communicating with the Backend API via fetch to request and display horse data.
 
 2. Backend
 
@@ -30,13 +30,13 @@ RESTful API created with Node.js and the Express framework. It acts as the centr
 
 Key Responsibilities:
 
-Exposing clear API endpoints (e.g., GET /api/horses, GET /api/horses/:id) for the frontend.
+- Exposing clear API endpoints (e.g., GET /api/horses, GET /api/horses/:id) for the frontend.
 
-Processing incoming HTTP requests and returning data in a structured JSON format.
+- Processing incoming HTTP requests and returning data in a structured JSON format.
 
-Interacting with the Horse Data Manager to retrieve or update information.
+- Interacting with the Horse Data Manager to retrieve or update information.
 
-Running a simulation to periodically update training logs (every 20 seconds), mimicking a live data environment.
+- Running a simulation to periodically update training logs (every 20 seconds), mimicking a live data environment.
 
 3. Horse Data Manager
 
@@ -44,9 +44,9 @@ For this project, the data is managed in an in-memory JavaScript array on the se
 
 Key Responsibilities:
 
-Serving as the single source of data for all horse information.
+- Serving as the single source of data for all horse information.
 
-Holding the application's state, which is loaded into memory when the server starts.
+- Holding the application's state, which is loaded into memory when the server starts.
 
 The data is non-persistent. Any updates (including the simulated training logs) will be reset if the server restarts.
 ---
